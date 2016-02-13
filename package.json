@@ -12,8 +12,9 @@
     "precommit": "npm run lint",
     "prepush": "npm run lint"
   },
-  "author": "",
+  "author": "Zach Eagle",
   "license": "MIT",
+  "repository": "zacheagle/dockerps",
   "dependencies": {
     "chalk": "^1.1.1",
     "cli-table2": "^0.2.0",
