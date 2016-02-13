@@ -11,16 +11,18 @@ const cli = meow(`
     $ dockerps [OPTIONS]
 
   Options
-    -a, --all     Show all containers (default shows just running)
-    -l, --latest  Show the latest created container, include non-running
-    -n, --number  Show n last created containers, include non-running
-    -h, --help    Show usage
+    -a, --all      Show all containers (default shows just running)
+    -l, --latest   Show the latest created container, include non-running
+    -n, --number   Show n last created containers, include non-running
+    -v, --version  Show version
+    -h, --help     Show usage
 `,
   {
     alias: {
       a: 'all',
       l: 'latest',
       n: 'number',
+      v: 'version',
       h: 'help'
     }
   }
