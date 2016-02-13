@@ -1,0 +1,29 @@
+{
+  "name": "dockerps",
+  "version": "0.1.0",
+  "description": "Pretty-print docker ps utility",
+  "main": "./lib/index.js",
+  "bin": {
+    "dockerps": "bin/dockerps.js"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "lint": "standard",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "cli-table2": "^0.2.0",
+    "lodash": "^4.3.0",
+    "meow": "^3.7.0",
+    "moment": "^2.11.2"
+  },
+  "devDependencies": {
+    "ava": "^0.11.0",
+    "husky": "^0.10.2",
+    "standard": "^6.0.5"
+  }
+}
