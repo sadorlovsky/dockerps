@@ -24,4 +24,10 @@ dockerps --latest
 
 # show n last created containers
 dockerps --number 2
+
+# show all containers with a name containing "desperate"
+dockerps --filter "name=desperate"
+
+# show all containers based on ubuntu image
+dockerps --filter "ancestor=ubuntu"
 ```

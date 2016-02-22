@@ -14,6 +14,13 @@ const cli = meow(`
     -a, --all      Show all containers (default shows just running)
     -l, --latest   Show the latest created container, include non-running
     -n, --number   Show n last created containers, include non-running
+    -f, --filter   Filter output based on these conditions:
+                      - id=<ID> a container's ID
+                      - name=<string> a container's name
+                      - label=<key> or label=<key>=<value>
+                      - status=(created|restarting|running|paused|exited)
+                      - ancestor=(<image-name>[:tag]|<image-id>|<image@digest>)
+                      - exited=<int> an exit code of <int>
     -v, --version  Show version
     -h, --help     Show usage
 `,
@@ -22,6 +29,7 @@ const cli = meow(`
       a: 'all',
       l: 'latest',
       n: 'number',
+      f: 'filter',
       v: 'version',
       h: 'help'
     }
@@ -42,6 +50,10 @@ if (cli.flags.l) {
 
 if (_.isNumber(cli.flags.n)) {
   options += `-n ${cli.flags.n}`
+}
+
+if (_.isString(cli.flags.f)) {
+  options += `-f "${cli.flags.f}"`
 }
 
 const formatOptions = [
