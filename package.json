@@ -1,6 +1,6 @@
 {
   "name": "dockerps",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Pretty-print docker ps utility",
   "main": "./lib/index.js",
   "bin": {
