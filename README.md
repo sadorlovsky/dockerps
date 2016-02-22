@@ -4,6 +4,8 @@
 
 Pretty-print `docker ps` utility written in node.js.
 
+[![asciicast](https://asciinema.org/a/e5hdjs2nc3o1qs01nu24u577x.png)](https://asciinema.org/a/e5hdjs2nc3o1qs01nu24u577x)
+
 ## Install
 ```
 sudo npm install -g dockerps
