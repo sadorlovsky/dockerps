@@ -1,8 +1,8 @@
 # dockerps
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-Pretty-print docker ps utility
+Pretty-print `docker ps` utility written in node.js.
 
 ## Install
 ```
@@ -10,15 +10,18 @@ sudo npm install -g dockerps
 ```
 
 ## Usage
+`dockerps` is like a normal `docker ps` but has nice readable output.
+
 ```
-$ dockerps --help
+# show running containers
+dockerps
 
-  Usage
-    $ dockerps [OPTIONS]
+# show all containers
+dockerps --all
 
-  Options
-    -a, --all     Show all containers (default shows just running)
-    -l, --latest  Show the latest created container, include non-running
-    -n, --number  Show n last created containers, include non-running
-    -h, --help    Show usage
+# show the latest created container
+dockerps --latest
+
+# show n last created containers
+dockerps --number 2
 ```
