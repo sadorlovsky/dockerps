@@ -2,10 +2,10 @@
 
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
-[![npm](https://img.shields.io/npm/v/dockerps.svg)]()
-[![npm](https://img.shields.io/npm/dt/dockerps.svg)]()
-[![David](https://img.shields.io/david/zacheagle/dockerps.svg)]()
-[![npm](https://img.shields.io/npm/l/dockerps.svg)]()
+[![npm](https://img.shields.io/npm/v/dockerps.svg)](https://www.npmjs.com/package/dockerps)
+[![npm](https://img.shields.io/npm/dt/dockerps.svg)](https://www.npmjs.com/package/dockerps)
+[![David](https://img.shields.io/david/zacheagle/dockerps.svg)](https://www.npmjs.com/package/dockerps)
+[![npm](https://img.shields.io/npm/l/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 
 Pretty-print `docker ps` utility written in node.js.
 
