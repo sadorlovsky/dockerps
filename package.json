@@ -9,6 +9,7 @@
   "preferGlobal": true,
   "scripts": {
     "lint": "standard",
+    "test": "ava",
     "precommit": "npm run lint",
     "prepush": "npm run lint"
   },
@@ -23,8 +24,9 @@
     "moment": "^2.11.2"
   },
   "devDependencies": {
-    "ava": "^0.11.0",
+    "ava": "^0.12.0",
     "husky": "^0.10.2",
+    "proxyquire": "^1.7.4",
     "standard": "^6.0.5"
   }
 }
