@@ -31,7 +31,6 @@ export default function execute (options) {
   }
 
   if (containers.length === 0) {
-    console.log(options)
     return chalk.magenta('There are no running containers.') + '\n' +
       `Use ${chalk.blue('-a, --all')} option to show all containers.`
   }
