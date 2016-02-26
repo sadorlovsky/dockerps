@@ -9,6 +9,7 @@
   "preferGlobal": true,
   "scripts": {
     "build": "babel src -d lib",
+    "build:watch": "watch 'npm run build' src",
     "lint": "standard",
     "test": "ava -r babel-register",
     "postinstall": "npm run build",
@@ -33,6 +34,7 @@
     "babel-register": "^6.5.2",
     "husky": "^0.10.2",
     "proxyquire": "^1.7.4",
-    "standard": "^6.0.5"
+    "standard": "^6.0.5",
+    "watch": "^0.17.1"
   }
 }
