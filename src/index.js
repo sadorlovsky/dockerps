@@ -1,9 +1,7 @@
-'use strict'
+import _ from 'lodash'
+import execute from './execute'
 
-const _ = require('lodash')
-const execute = require('./execute')
-
-function generateOptions (cli) {
+export function generateOptions (cli) {
   const options = []
   const flags = cli.flags
 
@@ -26,8 +24,6 @@ function generateOptions (cli) {
   return _.join(options, ' ')
 }
 
-function dockerps (cli) {
+export default function dockerps (cli) {
   return execute(generateOptions(cli))
 }
-
-module.exports = { dockerps, generateOptions }

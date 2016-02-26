@@ -3,3 +3,4 @@
 .git
 .npmrc
 npm-debug.log
+lib

@@ -1,18 +1,16 @@
-'use strict'
+import child_process from 'child_process'
+import _ from 'lodash'
+import chalk from 'chalk'
+import outputConsole from './output'
 
-const exec = require('child_process').execSync
-const _ = require('lodash')
-const chalk = require('chalk')
-const outputConsole = require('./output')
-
-function execute (options) {
+export default function execute (options) {
   const formatOptions = [
     '{{.ID}}', '{{.Names}}', '{{.Image}}', '{{.Command}}',
     '{{.CreatedAt}}', '{{.RunningFor}}', '{{.Status}}', '{{.Ports}}'
   ]
   const format = _.join(formatOptions, '\t')
 
-  const output = exec(`docker ps ${options} --format "${format}"`).toString()
+  const output = child_process.execSync(`docker ps ${options} --format "${format}"`).toString()
 
   let containers = []
 
@@ -40,5 +38,3 @@ function execute (options) {
 
   return outputConsole(containers)
 }
-
-module.exports = execute

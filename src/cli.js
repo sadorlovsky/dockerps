@@ -1,7 +1,5 @@
-'use strict'
-
-const meow = require('meow')
-const dockerps = require('./index')
+import meow from 'meow'
+import dockerps from './index'
 
 const cli = meow(`
   Usage

@@ -8,10 +8,13 @@
   },
   "preferGlobal": true,
   "scripts": {
+    "build": "babel src -d lib",
     "lint": "standard",
-    "test": "ava",
-    "precommit": "npm run lint",
-    "prepush": "npm run lint"
+    "test": "ava -r babel-register",
+    "postinstall": "npm run build",
+    "prepublish": "npm run lint & npm run test",
+    "precommit": "npm run lint & npm run test",
+    "prepush": "npm run lint & npm run test"
   },
   "author": "Zach Eagle",
   "license": "MIT",
@@ -25,6 +28,9 @@
   },
   "devDependencies": {
     "ava": "^0.12.0",
+    "babel-cli": "^6.5.1",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-register": "^6.5.2",
     "husky": "^0.10.2",
     "proxyquire": "^1.7.4",
     "standard": "^6.0.5"

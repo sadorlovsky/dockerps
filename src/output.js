@@ -1,11 +1,9 @@
-'use strict'
+import Table from 'cli-table2'
+import chalk from 'chalk'
+import moment from 'moment'
+import _ from 'lodash'
 
-const Table = require('cli-table2')
-const chalk = require('chalk')
-const moment = require('moment')
-const _ = require('lodash')
-
-function outputConsole (containers) {
+export default function outputConsole (containers) {
   const table = new Table({
     head: [
       chalk.cyan('ID'),
@@ -42,5 +40,3 @@ function outputConsole (containers) {
 
   return table.toString()
 }
-
-module.exports = outputConsole
