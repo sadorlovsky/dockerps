@@ -1,23 +1,31 @@
 import child_process from 'child_process'
-import _ from 'lodash'
 import chalk from 'chalk'
 import outputConsole from './output'
 
-export default function execute (options) {
-  const formatOptions = [
-    '{{.ID}}', '{{.Names}}', '{{.Image}}', '{{.Command}}',
-    '{{.CreatedAt}}', '{{.RunningFor}}', '{{.Status}}', '{{.Ports}}'
-  ]
-  const format = _.join(formatOptions, '\t')
+export function format () {
+  return [
+    '{{.ID}}',
+    '{{.Names}}',
+    '{{.Image}}',
+    '{{.Command}}',
+    '{{.CreatedAt}}',
+    '{{.RunningFor}}',
+    '{{.Status}}',
+    '{{.Ports}}'
+  ].join('\t')
+}
 
-  const output = child_process.execSync(`docker ps ${options} --format "${format}"`).toString()
+export function execute (options) {
+  return child_process.execSync(`docker ps ${options || ''} --format "${format()}"`).toString()
+}
 
-  let containers = []
+export function parse (stdout) {
+  const containers = []
 
-  for (let row of output.split('\n')) {
+  for (let row of stdout.split('\n')) {
     if (row === '') continue
     const data = row.split('\t')
-    let container = {
+    const container = {
       id: data[0],
       name: data[1],
       image: data[2],
@@ -29,6 +37,13 @@ export default function execute (options) {
     }
     containers.push(container)
   }
+
+  return containers
+}
+
+export default function (options) {
+  const stdout = execute(options)
+  const containers = parse(stdout)
 
   if (containers.length === 0) {
     return chalk.magenta('There are no running containers.') + '\n' +
