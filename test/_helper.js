@@ -1,7 +1,7 @@
 import faker from 'faker'
 import moment from 'moment'
 
-export function fakeStdout () {
+export function randomStdout () {
   const stdout = []
 
   for (let i = 0; i < (Math.random() * 100); i++) {

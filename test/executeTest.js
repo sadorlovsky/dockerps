@@ -1,6 +1,6 @@
 import proxyquire from 'proxyquire'
 import test from 'ava'
-import { fakeStdout } from './_helper'
+import { randomStdout } from './_helper'
 
 const stub = {}
 const execute = proxyquire('../src/execute', { 'child_process': stub })
@@ -11,7 +11,7 @@ test('format()', (t) => {
 })
 
 test('execute()', (t) => {
-  stub.execSync = fakeStdout
+  stub.execSync = randomStdout
   t.ok(execute.execute())
 })
 
