@@ -11,7 +11,7 @@
     "build": "babel src -d lib",
     "build:watch": "watch 'npm run build' src",
     "lint": "standard",
-    "test": "ava --require babel-core/register --verbose",
+    "test": "ava --verbose",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "coveralls": "nyc npm test && nyc report -reporter=text-lcov | coveralls",
     "postinstall": "npm run build",

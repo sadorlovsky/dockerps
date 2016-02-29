@@ -1,6 +1,7 @@
 import proxyquire from 'proxyquire'
 import test from 'ava'
 import chalk from 'chalk'
+import 'babel-register'
 import { randomStdout } from './_helper'
 
 const stub = {}

@@ -1,4 +1,5 @@
 import test from 'ava'
+import 'babel-register'
 import { generateOptions } from '../src/index'
 
 test('empty options', (t) => {
