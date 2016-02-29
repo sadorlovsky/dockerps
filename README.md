@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/zacheagle/dockerps/badge.svg?branch=master)](https://coveralls.io/github/zacheagle/dockerps?branch=master)
 [![npm](https://img.shields.io/npm/v/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 [![npm](https://img.shields.io/npm/dt/dockerps.svg)](https://www.npmjs.com/package/dockerps)
-[![David](https://img.shields.io/david/zacheagle/dockerps.svg)](https://www.npmjs.com/package/dockerps)
+[![Dependency Status](https://david-dm.org/zacheagle/dockerps.svg)](https://david-dm.org/zacheagle/dockerps)
 [![npm](https://img.shields.io/npm/l/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 
 Pretty-print `docker ps` utility written in node.js.
