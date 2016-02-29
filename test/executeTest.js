@@ -1,5 +1,6 @@
 import proxyquire from 'proxyquire'
 import test from 'ava'
+import chalk from 'chalk'
 import { randomStdout } from './_helper'
 
 const stub = {}
@@ -15,8 +16,98 @@ test('execute()', (t) => {
   t.ok(execute.execute())
 })
 
-test.skip('parse()', (t) => {
-  stub.execSync = fakeStdout
+test('execute("-a")', (t) => {
+  stub.execSync = randomStdout
+  t.ok(execute.execute('-a'))
+})
+
+test('parse no containers', (t) => {
+  stub.execSync = (cmd) => ''
   const stdout = execute.execute()
-  t.same(execute.parse(stdout), '')
+  const expected = []
+  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+})
+
+test('parse single container', (t) => {
+  stub.execSync = (cmd) => 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
+  const stdout = execute.execute()
+  const expected = [{
+    id: 'abc123def456',
+    name: 'mongo',
+    image: 'mongo',
+    command: '"./start.sh"',
+    createdAt: '2016-02-26 17:28:39 +0300',
+    runningFor: '5 days',
+    status: 'Up 5 days',
+    ports: undefined
+  }]
+  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+})
+
+test('parse two containers', (t) => {
+  stub.execSync = (cmd) => {
+    return 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
+      'abc123def457\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
+  }
+  const stdout = execute.execute()
+  const expected = [{
+    id: 'abc123def456',
+    name: 'mongo',
+    image: 'mongo',
+    command: '"./start.sh"',
+    createdAt: '2016-02-26 17:28:39 +0300',
+    runningFor: '5 days',
+    status: 'Up 5 days',
+    ports: undefined
+  }, {
+    id: 'abc123def457',
+    name: 'mongo',
+    image: 'mongo',
+    command: '"./start.sh"',
+    createdAt: '2016-02-26 17:28:39 +0300',
+    runningFor: '5 days',
+    status: 'Up 5 days',
+    ports: undefined
+  }]
+  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+})
+
+test('parse two containers with newline char', (t) => {
+  stub.execSync = (cmd) => {
+    return 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
+      'abc123def457\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n'
+  }
+  const stdout = execute.execute()
+  const expected = [{
+    id: 'abc123def456',
+    name: 'mongo',
+    image: 'mongo',
+    command: '"./start.sh"',
+    createdAt: '2016-02-26 17:28:39 +0300',
+    runningFor: '5 days',
+    status: 'Up 5 days',
+    ports: undefined
+  }, {
+    id: 'abc123def457',
+    name: 'mongo',
+    image: 'mongo',
+    command: '"./start.sh"',
+    createdAt: '2016-02-26 17:28:39 +0300',
+    runningFor: '5 days',
+    status: 'Up 5 days',
+    ports: undefined
+  }]
+  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+})
+
+test('default function is ok', (t) => {
+  stub.execSync = randomStdout
+  t.ok(execute.default())
+})
+
+test('default function returns a message if no containers', (t) => {
+  stub.execSync = (cmd) => ''
+  const expected = chalk.magenta('There are no running containers.') + '\n' +
+    `Use ${chalk.blue('-a, --all')} option to show all containers.`
+  t.same(execute.default(), expected)
 })
