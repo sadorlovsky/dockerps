@@ -1,6 +1,6 @@
 {
   "name": "dockerps",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Pretty-print docker ps utility",
   "main": "./lib/index.js",
   "bin": {
@@ -12,16 +12,39 @@
     "build:watch": "watch 'npm run build' src",
     "lint": "standard",
     "test": "ava --verbose",
+    "clean": "rimraf lib coverage",
+    "check": "npm run lint && npm run test",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "coveralls": "nyc npm test && nyc report -reporter=text-lcov | coveralls",
-    "postinstall": "npm run build",
-    "prepublish": "npm run lint & npm run test",
+    "prepublish": "npm run clean && npm run check && npm run build",
     "precommit": "npm run lint & npm run test",
     "prepush": "npm run lint & npm run test"
   },
-  "author": "Zach Eagle",
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "author": "Zach Eagle <mazaxakep@gmail.com>",
   "license": "MIT",
-  "repository": "zacheagle/dockerps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zacheagle/dockerps.git"
+  },
+  "keywords": [
+    "dockerps",
+    "pretty",
+    "docker",
+    "ps",
+    "cli",
+    "utility"
+  ],
+  "bugs": {
+    "url": "https://github.com/zacheagle/dockerps/issues"
+  },
+  "homepage": "https://github.com/zacheagle/dockerps",
   "dependencies": {
     "chalk": "^1.1.1",
     "cli-table2": "^0.2.0",
@@ -39,6 +62,7 @@
     "husky": "^0.11.3",
     "nyc": "^5.6.0",
     "proxyquire": "^1.7.4",
+    "rimraf": "^2.5.2",
     "standard": "^6.0.5",
     "watch": "^0.17.1"
   }
