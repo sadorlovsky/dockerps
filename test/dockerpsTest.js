@@ -1,7 +1,7 @@
 import test from 'ava'
-import { generateOptions } from '../src/index'
+import dockerps, { generateOptions } from '../src/index'
 
-test('empty', (t) => {
+test('empty options', (t) => {
   t.same(generateOptions({ flags: {} }), '')
 })
 
@@ -60,4 +60,8 @@ test('-f, --filter option', (t) => {
 
   t.same(generateOptions({ flags: {f: 123} }), '')
   t.same(generateOptions({ flags: {filter: 123} }), '')
+})
+
+test('default function is ok', (t) => {
+  t.ok(dockerps({ flags: {} }))
 })
