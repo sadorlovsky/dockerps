@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/zacheagle/dockerps.svg?branch=master)](https://travis-ci.org/zacheagle/dockerps)
 [![Coverage Status](https://coveralls.io/repos/github/zacheagle/dockerps/badge.svg?branch=master)](https://coveralls.io/github/zacheagle/dockerps?branch=master)
-[![npm](https://img.shields.io/npm/v/dockerps.svg)](https://www.npmjs.com/package/dockerps)
+[![npm version](https://badge.fury.io/js/dockerps.svg)](https://badge.fury.io/js/dockerps)
 [![npm](https://img.shields.io/npm/dt/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 [![Dependency Status](https://david-dm.org/zacheagle/dockerps.svg)](https://david-dm.org/zacheagle/dockerps)
 [![npm](https://img.shields.io/npm/l/dockerps.svg)](https://www.npmjs.com/package/dockerps)
