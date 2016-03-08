@@ -1,7 +1,7 @@
 import test from 'ava'
 import chalk from 'chalk'
 import 'babel-register'
-import { noContainersMessage, createTable, column } from '../src/output'
+import outputConsole, { noContainersMessage, createTable, column } from '../src/output'
 
 test('table', (t) => {
   t.ok(createTable())
@@ -17,4 +17,9 @@ test('column', (t) => {
 test('no containers message', (t) => {
   const expected = `${chalk.magenta('There are no running containers.')}\nUse ${chalk.blue('-a, --all')} option to show all containers.`
   t.same(noContainersMessage(), expected)
+})
+
+test('print message if no containers', (t) => {
+  const expected = `${chalk.magenta('There are no running containers.')}\nUse ${chalk.blue('-a, --all')} option to show all containers.`
+  t.same(outputConsole([]), expected)
 })
