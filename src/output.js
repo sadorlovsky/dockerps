@@ -32,6 +32,10 @@ export function column (data) {
 }
 
 export default function outputConsole (containers) {
+  if (containers.length === 0) {
+    return noContainersMessage()
+  }
+
   const table = createTable()
 
   containers.map((container) => {
@@ -55,4 +59,9 @@ export default function outputConsole (containers) {
   })
 
   return table.toString()
+}
+
+export function noContainersMessage () {
+  return chalk.magenta('There are no running containers.') + '\n' +
+    `Use ${chalk.blue('-a, --all')} option to show all containers.`
 }
