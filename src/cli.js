@@ -1,7 +1,6 @@
 import meow from 'meow'
-import dockerps from './index'
 
-const cli = meow(`
+export default meow(`
   Usage
     $ dockerps [options]
 
@@ -30,5 +29,3 @@ const cli = meow(`
     }
   }
 )
-
-console.log(dockerps(cli))

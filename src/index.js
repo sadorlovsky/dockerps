@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import cli from './cli'
 import execute from './execute'
 
 export function generateOptions (cli) {
