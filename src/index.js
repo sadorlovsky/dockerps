@@ -22,9 +22,9 @@ export function generateOptions (cli) {
     options.push(`-f ${flags.filter || flags.f}`)
   }
 
-  return _.join(options, ' ')
+  return options.join(' ')
 }
 
-export default function dockerps (cli) {
+export default function dockerps () {
   return execute(generateOptions(cli))
 }
