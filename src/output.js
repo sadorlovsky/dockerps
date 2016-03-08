@@ -3,8 +3,8 @@ import chalk from 'chalk'
 import moment from 'moment'
 import _ from 'lodash'
 
-export default function outputConsole (containers) {
-  const table = new Table({
+export function createTable () {
+  return new Table({
     head: [
       chalk.cyan('ID'),
       chalk.cyan('Container'),
@@ -21,18 +21,34 @@ export default function outputConsole (containers) {
 
     style: { border: [], 'padding-left': 1, 'padding-right': 1 }
   })
+}
+
+export function column (data) {
+  const result = []
+  _.forIn(data, (value, key) => {
+    result.push(chalk.magenta(key), value)
+  })
+  return result.join('\n')
+}
+
+export default function outputConsole (containers) {
+  const table = createTable()
 
   containers.map((container) => {
     table.push([
       container.id,
 
-      chalk.magenta('Name') + '\n' + container.name + '\n' +
-      chalk.magenta('Image') + '\n' + container.image + '\n' +
-      chalk.magenta('Command') + '\n' + _.trim(container.command, '"'),
+      column({
+        'Name': container.name,
+        'Image': container.image,
+        'Command': _.trim(container.command, '"')
+      }),
 
-      chalk.magenta('Created') + '\n' + moment(container.createdAt).fromNow() + '\n' +
-      chalk.magenta('Running for') + '\n' + container.runningFor + '\n' +
-      chalk.magenta('Status') + '\n' + container.status,
+      column({
+        'Created': moment(container.createdAt).fromNow(),
+        'Running for': container.runningFor,
+        'Status': container.status
+      }),
 
       _.replace(container.ports, ', ', '\n')
     ])
