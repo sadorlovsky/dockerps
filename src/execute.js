@@ -1,6 +1,27 @@
 import child_process from 'child_process'
-import chalk from 'chalk'
-import outputConsole from './output'
+import _ from 'lodash'
+
+export function optionsToString (flags) {
+  const options = []
+
+  if (flags.all || flags.a) {
+    options.push('-a')
+  }
+
+  if (flags.latest || flags.l) {
+    options.push('-l')
+  }
+
+  if (_.isNumber(flags.number || flags.n)) {
+    options.push(`-n ${flags.number || flags.n}`)
+  }
+
+  if (_.isString(flags.filter || flags.f)) {
+    options.push(`-f ${flags.filter || flags.f}`)
+  }
+
+  return options.join(' ')
+}
 
 export function format () {
   return [
@@ -39,16 +60,4 @@ export function parse (stdout) {
   }
 
   return containers
-}
-
-export default function (options) {
-  const stdout = execute(options)
-  const containers = parse(stdout)
-
-  if (containers.length === 0) {
-    return chalk.magenta('There are no running containers.') + '\n' +
-      `Use ${chalk.blue('-a, --all')} option to show all containers.`
-  }
-
-  return outputConsole(containers)
 }

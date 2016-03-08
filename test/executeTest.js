@@ -1,6 +1,5 @@
 import proxyquire from 'proxyquire'
 import test from 'ava'
-import chalk from 'chalk'
 import 'babel-register'
 import { randomStdout } from './_helper'
 
@@ -99,16 +98,4 @@ test('parse two containers with newline char', (t) => {
     ports: undefined
   }]
   t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
-})
-
-test('default function is ok', (t) => {
-  stub.execSync = randomStdout
-  t.ok(execute.default())
-})
-
-test('default function returns a message if no containers', (t) => {
-  stub.execSync = (cmd) => ''
-  const expected = chalk.magenta('There are no running containers.') + '\n' +
-    `Use ${chalk.blue('-a, --all')} option to show all containers.`
-  t.same(execute.default(), expected)
 })

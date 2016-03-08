@@ -1,30 +1,6 @@
-import _ from 'lodash'
+import _ from 'lodash/fp'
 import cli from './cli'
-import execute from './execute'
+import { optionsToString, execute, parse } from './execute'
+import output from './output'
 
-export function generateOptions (cli) {
-  const options = []
-  const flags = cli.flags
-
-  if (flags.all || flags.a) {
-    options.push('-a')
-  }
-
-  if (flags.latest || flags.l) {
-    options.push('-l')
-  }
-
-  if (_.isNumber(flags.number || flags.n)) {
-    options.push(`-n ${flags.number || flags.n}`)
-  }
-
-  if (_.isString(flags.filter || flags.f)) {
-    options.push(`-f ${flags.filter || flags.f}`)
-  }
-
-  return options.join(' ')
-}
-
-export default function dockerps () {
-  return execute(generateOptions(cli))
-}
+console.log(_.pipe(optionsToString, execute, parse, output)(cli.flags))
