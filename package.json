@@ -12,13 +12,13 @@
     "build:watch": "watch 'npm run build' src",
     "lint": "standard",
     "test": "ava --verbose",
-    "clean": "rimraf lib coverage",
+    "clean": "rimraf lib",
     "check": "npm run lint && npm run test",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
     "coveralls": "nyc npm test && nyc report -reporter=text-lcov | coveralls",
     "prepublish": "npm run clean && npm run check && npm run build",
-    "precommit": "npm run lint & npm run test",
-    "prepush": "npm run lint & npm run test"
+    "precommit": "npm run lint && npm run test",
+    "prepush": "npm run lint && npm run test"
   },
   "files": [
     "bin",
