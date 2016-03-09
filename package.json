@@ -15,7 +15,7 @@
     "clean": "rimraf lib",
     "check": "npm run lint && npm run test",
     "coverage": "nyc npm test && nyc report --reporter=lcov",
-    "coveralls": "nyc npm test && nyc report -reporter=text-lcov | coveralls",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run clean && npm run check && npm run build",
     "precommit": "npm run check",
     "prepush": "npm run check"
