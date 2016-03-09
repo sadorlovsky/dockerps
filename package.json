@@ -14,7 +14,7 @@
     "test": "ava --verbose",
     "clean": "rimraf lib",
     "check": "npm run lint && npm run test",
-    "codecov": "nyc npm test && nyc report --reporter=lcov && codecov",
+    "codecov": "nyc npm test && nyc report --reporter=lcov | codecov",
     "prepublish": "npm run clean && npm run check && npm run build",
     "precommit": "npm run check",
     "prepush": "npm run check"
