@@ -26,11 +26,11 @@
   "engines": {
     "node": ">=4.0.0"
   },
-  "author": "Zach Eagle <mazaxakep@gmail.com>",
+  "author": "Zach Orlovsky <sadorlovsky@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zacheagle/dockerps.git"
+    "url": "https://github.com/sadorlovsky/dockerps.git"
   },
   "keywords": [
     "dockerps",
@@ -41,9 +41,9 @@
     "utility"
   ],
   "bugs": {
-    "url": "https://github.com/zacheagle/dockerps/issues"
+    "url": "https://github.com/sadorlovsky/dockerps/issues"
   },
-  "homepage": "https://github.com/zacheagle/dockerps",
+  "homepage": "https://github.com/sadorlovsky/dockerps",
   "dependencies": {
     "chalk": "^1.1.1",
     "cli-table2": "^0.2.0",
