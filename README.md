@@ -3,7 +3,7 @@
 [![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 [![Build Status](https://travis-ci.org/sadorlovsky/dockerps.svg?branch=master)](https://travis-ci.org/sadorlovsky/dockerps)
-[![Codecov](https://img.shields.io/codecov/c/github/sadorlovsky/dockerps.svg)](https://codecov.io/github/sadorlovsky/dockerps)
+[![Coverage Status](https://coveralls.io/repos/github/sadorlovsky/dockerps/badge.svg?branch=master)](https://coveralls.io/github/sadorlovsky/dockerps?branch=master)
 [![npm version](https://badge.fury.io/js/dockerps.svg)](https://badge.fury.io/js/dockerps)
 [![npm](https://img.shields.io/npm/dt/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 [![Dependency Status](https://david-dm.org/sadorlovsky/dockerps.svg)](https://david-dm.org/sadorlovsky/dockerps)
