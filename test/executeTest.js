@@ -1,6 +1,5 @@
 import proxyquire from 'proxyquire'
 import test from 'ava'
-import 'babel-register'
 import { randomStdout } from './_helper'
 
 const stub = {}
@@ -8,24 +7,24 @@ const execute = proxyquire('../src/execute', { 'child_process': stub })
 
 test('format()', (t) => {
   const expected = '{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{.CreatedAt}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}'
-  t.same(execute.format(), expected)
+  t.deepEqual(execute.format(), expected)
 })
 
 test('execute()', (t) => {
   stub.execSync = randomStdout
-  t.ok(execute.execute())
+  t.truthy(execute.execute())
 })
 
 test('execute("-a")', (t) => {
   stub.execSync = randomStdout
-  t.ok(execute.execute('-a'))
+  t.truthy(execute.execute('-a'))
 })
 
 test('parse no containers', (t) => {
   stub.execSync = (cmd) => ''
   const stdout = execute.execute()
   const expected = []
-  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
 })
 
 test('parse single container', (t) => {
@@ -41,7 +40,7 @@ test('parse single container', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
 })
 
 test('parse two containers', (t) => {
@@ -69,7 +68,7 @@ test('parse two containers', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
 })
 
 test('parse two containers with newline char', (t) => {
@@ -97,5 +96,5 @@ test('parse two containers with newline char', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.same(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
 })

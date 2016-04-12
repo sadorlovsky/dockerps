@@ -19,6 +19,11 @@
     "precommit": "npm run check",
     "prepush": "npm run check"
   },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
   "files": [
     "bin",
     "lib"
