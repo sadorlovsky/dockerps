@@ -5,31 +5,24 @@ import { randomStdout } from './_helper'
 const stub = {}
 const execute = proxyquire('../src/execute', { 'child_process': stub })
 
-test('format()', (t) => {
-  const expected = '{{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Command}}\t{{.CreatedAt}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}'
-  t.deepEqual(execute.format(), expected)
-})
-
-test('execute()', (t) => {
+test('execute() works', (t) => {
   stub.execSync = randomStdout
-  t.truthy(execute.execute())
+  t.truthy(execute())
 })
 
-test('execute("-a")', (t) => {
+test('execute(\'-a\' works)', (t) => {
   stub.execSync = randomStdout
-  t.truthy(execute.execute('-a'))
+  t.truthy(execute('-a'))
 })
 
-test('parse no containers', (t) => {
+test('no containers', (t) => {
   stub.execSync = (cmd) => ''
-  const stdout = execute.execute()
   const expected = []
-  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(execute(), expected)
 })
 
-test('parse single container', (t) => {
+test('single container', (t) => {
   stub.execSync = (cmd) => 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
-  const stdout = execute.execute()
   const expected = [{
     id: 'abc123def456',
     name: 'mongo',
@@ -40,15 +33,14 @@ test('parse single container', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(execute(), expected)
 })
 
-test('parse two containers', (t) => {
+test('two containers', (t) => {
   stub.execSync = (cmd) => {
     return 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
       'abc123def457\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
   }
-  const stdout = execute.execute()
   const expected = [{
     id: 'abc123def456',
     name: 'mongo',
@@ -68,15 +60,14 @@ test('parse two containers', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(execute(), expected)
 })
 
-test('parse two containers with newline char', (t) => {
+test('two containers with the newline char', (t) => {
   stub.execSync = (cmd) => {
     return 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
       'abc123def457\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n'
   }
-  const stdout = execute.execute()
   const expected = [{
     id: 'abc123def456',
     name: 'mongo',
@@ -96,5 +87,5 @@ test('parse two containers with newline char', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.deepEqual(JSON.stringify(execute.parse(stdout)), JSON.stringify(expected))
+  t.deepEqual(execute(), expected)
 })
