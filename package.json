@@ -11,7 +11,7 @@
     "build": "babel src -d lib",
     "build:watch": "watch 'npm run build' src",
     "lint": "standard",
-    "test": "nyc ava --verbose",
+    "test": "nyc --reporter=lcov ava",
     "clean": "rimraf lib",
     "check": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
