@@ -7,7 +7,6 @@
 [![npm version](https://badge.fury.io/js/dockerps.svg)](https://badge.fury.io/js/dockerps)
 [![npm](https://img.shields.io/npm/dt/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 [![Dependency Status](https://david-dm.org/sadorlovsky/dockerps.svg)](https://david-dm.org/sadorlovsky/dockerps)
-[![npm](https://img.shields.io/npm/l/dockerps.svg)](https://www.npmjs.com/package/dockerps)
 
 Pretty-print `docker ps` utility written in node.js.
 
@@ -40,3 +39,6 @@ dockerps --filter "name=desperate"
 # show all containers based on ubuntu image
 dockerps --filter "ancestor=ubuntu"
 ```
+
+### License
+MIT
