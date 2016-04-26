@@ -1,24 +1,12 @@
-import proxyquire from 'proxyquire'
 import test from 'ava'
-import { randomStdout } from './_helper'
+import proxyquire from 'proxyquire'
 
 const stub = {}
-const execute = proxyquire('../src/execute', { 'child_process': stub })
+const dockerps = proxyquire('../src/dockerps', { 'child_process': stub })
 
-test('execute() works', (t) => {
-  stub.execSync = randomStdout
-  t.truthy(execute())
-})
-
-test('execute(\'-a\' works)', (t) => {
-  stub.execSync = randomStdout
-  t.truthy(execute('-a'))
-})
-
-test('no containers', (t) => {
+test('no containers', t => {
   stub.execSync = (cmd) => ''
-  const expected = []
-  t.deepEqual(execute(), expected)
+  t.deepEqual(dockerps({}), [])
 })
 
 test('single container', (t) => {
@@ -33,7 +21,7 @@ test('single container', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.deepEqual(execute(), expected)
+  t.deepEqual(dockerps({}), expected)
 })
 
 test('two containers', (t) => {
@@ -60,7 +48,7 @@ test('two containers', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.deepEqual(execute(), expected)
+  t.deepEqual(dockerps({}), expected)
 })
 
 test('two containers with the newline char', (t) => {
@@ -87,5 +75,5 @@ test('two containers with the newline char', (t) => {
     status: 'Up 5 days',
     ports: undefined
   }]
-  t.deepEqual(execute(), expected)
+  t.deepEqual(dockerps({}), expected)
 })
