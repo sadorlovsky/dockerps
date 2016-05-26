@@ -1,7 +1,5 @@
 # dockerps
 
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
-
 [![Build Status](https://travis-ci.org/sadorlovsky/dockerps.svg?branch=master)](https://travis-ci.org/sadorlovsky/dockerps)
 [![Coverage Status](https://coveralls.io/repos/github/sadorlovsky/dockerps/badge.svg?branch=master)](https://coveralls.io/github/sadorlovsky/dockerps?branch=master)
 [![npm version](https://badge.fury.io/js/dockerps.svg)](https://badge.fury.io/js/dockerps)
@@ -14,7 +12,7 @@ Pretty-print `docker ps` utility written in node.js.
 
 ## Install
 ```
-sudo npm install -g dockerps
+$ npm install -g dockerps
 ```
 
 ## Usage
@@ -40,5 +38,6 @@ dockerps --filter "name=desperate"
 dockerps --filter "ancestor=ubuntu"
 ```
 
-### License
-MIT
+## License
+
+MIT © [Zach Orlovsky](https://orlovsky.rocks)

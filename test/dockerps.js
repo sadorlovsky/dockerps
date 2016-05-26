@@ -5,12 +5,12 @@ const stub = {}
 const dockerps = proxyquire('../src/dockerps', { 'child_process': stub })
 
 test('no containers', t => {
-  stub.execSync = (cmd) => ''
+  stub.execSync = () => ''
   t.deepEqual(dockerps({}), [])
 })
 
-test('single container', (t) => {
-  stub.execSync = (cmd) => 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
+test('single container', t => {
+  stub.execSync = () => 'abc123def456\tmongo\tmongo\t"./start.sh"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
   const expected = [{
     id: 'abc123def456',
     name: 'mongo',
@@ -24,10 +24,10 @@ test('single container', (t) => {
   t.deepEqual(dockerps({}), expected)
 })
 
-test('two containers', (t) => {
-  stub.execSync = (cmd) => {
-    return 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
-      'abc123def457\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
+test('two containers', t => {
+  stub.execSync = () => {
+    return 'abc123def456\tmongo\tmongo\t"./start.sh"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
+      'abc123def457\tmongo\tmongo\t"./start.sh"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days'
   }
   const expected = [{
     id: 'abc123def456',
@@ -51,10 +51,10 @@ test('two containers', (t) => {
   t.deepEqual(dockerps({}), expected)
 })
 
-test('two containers with the newline char', (t) => {
-  stub.execSync = (cmd) => {
-    return 'abc123def456\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
-      'abc123def457\tmongo\tmongo\t\"./start.sh\"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n'
+test('two containers with the newline char', t => {
+  stub.execSync = () => {
+    return 'abc123def456\tmongo\tmongo\t"./start.sh"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n' +
+      'abc123def457\tmongo\tmongo\t"./start.sh"\t2016-02-26 17:28:39 +0300\t5 days\tUp 5 days\n'
   }
   const expected = [{
     id: 'abc123def456',

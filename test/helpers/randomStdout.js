@@ -1,7 +1,7 @@
 import faker from 'faker'
 import moment from 'moment'
 
-export function randomStdout () {
+export default function randomStdout () {
   const stdout = []
 
   for (let i = 0; i < (Math.random() * 100); i++) {
@@ -16,9 +16,8 @@ export function randomStdout () {
       const days = faker.random.number()
       if (_status === 'Exited') {
         return `${_status} (0) ${days} days ago`
-      } else {
-        return `${_status} ${days} days`
       }
+      return `${_status} ${days} days`
     }
     const ports = () => {
       return faker.helpers.randomize([

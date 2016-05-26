@@ -13,10 +13,21 @@ export function createTable () {
     ],
 
     chars: {
-      'top': '─', 'top-mid': '', 'top-left': '', 'top-right': '',
-      'bottom': '─', 'bottom-mid': '', 'bottom-left': '', 'bottom-right': '',
-      'left': '', 'left-mid': '', 'mid': '─', 'mid-mid': '',
-      'right': '', 'right-mid': '', 'middle': ''
+      'top': '─',
+      'top-mid': '',
+      'top-left': '',
+      'top-right': '',
+      'bottom': '─',
+      'bottom-mid': '',
+      'bottom-left': '',
+      'bottom-right': '',
+      'left': '',
+      'left-mid': '',
+      'mid': '─',
+      'mid-mid': '',
+      'right': '',
+      'right-mid': '',
+      'middle': ''
     },
 
     style: { border: [], 'padding-left': 1, 'padding-right': 1 }
@@ -31,6 +42,11 @@ export function column (data) {
   return result.join('\n')
 }
 
+export function noContainersMessage () {
+  return `${chalk.magenta('There are no running containers.')}
+  Use ${chalk.blue('-a, --all')} option to show all containers.`
+}
+
 export default function outputConsole (containers) {
   if (containers.length === 0) {
     return noContainersMessage()
@@ -38,8 +54,8 @@ export default function outputConsole (containers) {
 
   const table = createTable()
 
-  containers.map((container) => {
-    table.push([
+  containers.map(container => {
+    return table.push([
       container.id,
 
       column({
@@ -59,9 +75,4 @@ export default function outputConsole (containers) {
   })
 
   return table.toString()
-}
-
-export function noContainersMessage () {
-  return chalk.magenta('There are no running containers.') + '\n' +
-    `Use ${chalk.blue('-a, --all')} option to show all containers.`
 }

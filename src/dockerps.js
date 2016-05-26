@@ -19,8 +19,8 @@ function exec (options) {
 
 function ast (stdout) {
   return stdout.split('\n')
-    .filter((row) => row !== '')
-    .map((row) => {
+    .filter(row => row !== '')
+    .map(row => {
       const data = row.split('\t')
       return {
         id: data[0],
