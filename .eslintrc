@@ -1,3 +1,15 @@
 {
-  "extends": "@sadorlovsky"
+  "extends": "@sadorlovsky",
+
+  "plugins": [
+    "babel"
+  ],
+
+  "rules": {
+    "generator-star-spacing": "off",
+    "babel/generator-star-spacing": ["error", {
+      "before": false,
+      "after": true
+    }]
+  }
 }
