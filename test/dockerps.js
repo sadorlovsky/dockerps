@@ -1,8 +1,8 @@
 import test from 'ava'
-import proxyquire from 'proxyquire'
+import dockerps from '../src/dockerps'
 
 const stub = {}
-const dockerps = proxyquire('../src/dockerps', { 'child_process': stub })
+dockerps.__Rewire__('child_process', stub)
 
 test('no containers', t => {
   stub.execSync = () => ''
