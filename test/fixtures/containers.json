@@ -1,0 +1,314 @@
+[{
+  "Id": "f20d9870b0a0351cb0ee567ba53dd62617fff90886f4c446d6f03499c30c231d",
+  "Names": ["/small_galileo"],
+  "Image": "kinopoisk-bot",
+  "ImageID": "sha256:ad409121e4bba32202506db0c5d47e56f247ece3e5e4441f1a73ad6ee37ab212",
+  "Command": "npm start",
+  "Created": 1459221528,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 8 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "fb019b5f35685d527c850377d1bcaf24149e1a4f8b68951bb493ebbff919e623",
+  "Names": ["/sick_kalam"],
+  "Image": "sha256:58e5f58aeab3eb3722b1fb09050e1cbd4d412bff93f9403f48061b9dff180f5f",
+  "ImageID": "sha256:58e5f58aeab3eb3722b1fb09050e1cbd4d412bff93f9403f48061b9dff180f5f",
+  "Command": "/bin/sh -c 'npm install'",
+  "Created": 1458312197,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (1) 9 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "feeb0dbac4c9eb7ffe872237c7b0623f5aa6d3f107081017038fa1d9829f4450",
+  "Names": ["/drunk_davinci"],
+  "Image": "node_example",
+  "ImageID": "sha256:6a366a6b278ab7f285a887ad4748bf8987f3da5fb5274c7a8d851039a066ebbd",
+  "Command": "npm start",
+  "Created": 1458310578,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 9 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "7dd1d114042c1a4cad8789b0f0167429904043a4cfdec15aade21bc825076133",
+  "Names": ["/jolly_dijkstra"],
+  "Image": "node_example",
+  "ImageID": "sha256:6a366a6b278ab7f285a887ad4748bf8987f3da5fb5274c7a8d851039a066ebbd",
+  "Command": "npm start",
+  "Created": 1458310491,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 9 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "f08a1799e0e7e45ce659eeb58b63b819d7c07abb7c95352b2b9999510855ba4f",
+  "Names": ["/cocky_lumiere"],
+  "Image": "alpine_node_example",
+  "ImageID": "sha256:8e77f4b5ec3bed3b0c4b795ccb0ee73484c3615d8c1f555f4295aacd1955088e",
+  "Command": "npm start",
+  "Created": 1458289855,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 9 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "86dfd56ae64f647a02e3c77196540568352badea75a7f519e8012f8fe29f9068",
+  "Names": ["/silly_heisenberg"],
+  "Image": "alpine_node_example",
+  "ImageID": "sha256:8e77f4b5ec3bed3b0c4b795ccb0ee73484c3615d8c1f555f4295aacd1955088e",
+  "Command": "-d",
+  "Created": 1458289824,
+  "Ports": [],
+  "Labels": {},
+  "State": "created",
+  "Status": "Created",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "d0531516137a3d1f6df02a89239a7b31a76c1ec61d02141aeff4f4eeffdcc724",
+  "Names": ["/modest_cori"],
+  "Image": "alpine_node_example",
+  "ImageID": "sha256:8e77f4b5ec3bed3b0c4b795ccb0ee73484c3615d8c1f555f4295aacd1955088e",
+  "Command": "node --version",
+  "Created": 1458289818,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 9 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "ddd40c11ebb04403063c5bbfe730f20be731967023b9853d682600cdbde57c69",
+  "Names": ["/gloomy_kirch"],
+  "Image": "sha256:cb467c8182587bb1d9166906fc560ff127a47cb9dbc2bc400fef54c570a5d426",
+  "ImageID": "sha256:cb467c8182587bb1d9166906fc560ff127a47cb9dbc2bc400fef54c570a5d426",
+  "Command": "node --version",
+  "Created": 1458289685,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 9 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": []
+}, {
+  "Id": "da68c87fd1873833db649183ebdd5b7fae7b3573a7b5147bdb2591d44b3d8978",
+  "Names": ["/mongodb"],
+  "Image": "mongo",
+  "ImageID": "sha256:598d0def97f180366008bcddbf0a4ed5267b35d0a876c0f867fc38c7adb041e3",
+  "Command": "/entrypoint.sh mongod",
+  "Created": 1457680332,
+  "Ports": [],
+  "Labels": {},
+  "State": "exited",
+  "Status": "Exited (0) 10 weeks ago",
+  "HostConfig": {
+    "NetworkMode": "default"
+  },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "",
+        "Gateway": "",
+        "IPAddress": "",
+        "IPPrefixLen": 0,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": ""
+      }
+    }
+  },
+  "Mounts": [{
+    "Name": "d91d0f0cf0f4454140a9caeff9b24364b3dabfeb42e7ea24d2e366f33a77cc3d",
+    "Source": "/var/lib/docker/volumes/d91d0f0cf0f4454140a9caeff9b24364b3dabfeb42e7ea24d2e366f33a77cc3d/_data",
+    "Destination": "/data/db",
+    "Driver": "local",
+    "Mode": "",
+    "RW": true,
+    "Propagation": ""
+  }, {
+    "Name": "d6e8c128d387191989981991af7f7f3d108df482c2821b6752ab26113b61321b",
+    "Source": "/var/lib/docker/volumes/d6e8c128d387191989981991af7f7f3d108df482c2821b6752ab26113b61321b/_data",
+    "Destination": "/data/configdb",
+    "Driver": "local",
+    "Mode": "",
+    "RW": true,
+    "Propagation": ""
+  }]
+}]
