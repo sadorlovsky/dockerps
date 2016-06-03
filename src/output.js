@@ -44,7 +44,7 @@ export function column (data) {
 
 export function noContainersMessage () {
   return `${chalk.magenta('There are no running containers.')}
-  Use ${chalk.blue('-a, --all')} option to show all containers.`
+Use ${chalk.blue('-a, --all')} option to show all containers.`
 }
 
 export default function outputConsole (containers) {
