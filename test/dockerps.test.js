@@ -13,15 +13,6 @@ test('get containers', async t => {
     .get('/containers/json')
     .replyWithFile(200, fixturePath)
 
-  const result = await dockerps({}, 'http://docker.local')
+  const result = await dockerps({ docker: 'http://docker.local' })
   t.deepEqual(result, await fs.readFile(fixturePath, { encoding: 'utf8' }))
-})
-
-test.skip('error', async t => {
-  nock('http://docker.local')
-    .get('/containers/json')
-    .reply(500)
-
-  await dockerps({}, 'http://docker.local')
-  t.pass()
 })

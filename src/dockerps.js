@@ -1,15 +1,14 @@
 import 'babel-polyfill'
-import url from 'url'
 import got from 'got'
 
-async function dockerps (options, dockerAddress) {
-  options = {
-    all: false
-  }
-  dockerAddress = dockerAddress || 'unix:///var/run/docker.sock'
-
+async function dockerps (options = {
+  all: false,
+  docker: 'http://unix:/var/run/docker.sock:'
+}) {
+  const { all, docker } = options
+  const query = all ? '?all=true' : ''
   const { body } = await got(
-    `${dockerAddress}/containers/json`
+    `${docker}/containers/json${query}`
   )
   return body
 }
