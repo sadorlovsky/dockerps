@@ -311,4 +311,49 @@
     "RW": true,
     "Propagation": ""
   }]
+}, {
+  "Id": "1bba5a72aa6f9579f28a62dec58d006ae9078be52a78d2681437bb07e96a8342",
+  "Names": ["/reverent_hodgkin"],
+  "Image": "abiosoft/caddy",
+  "ImageID": "sha256:99f7e26330454584927ad541ea576970557108b19772fb9b67852122d936e621",
+  "Command": "/usr/bin/caddy --conf /etc/Caddyfile",
+  "Created": 1469736078,
+  "Ports": [
+    { "PrivatePort": 2015, "Type": "tcp" },
+    { "PrivatePort": 443, "Type": "tcp" },
+    { "PrivatePort": 80, "Type": "tcp" }
+  ],
+  "Labels": { "architecture": "amd64", "caddy_version": "0.8.3" },
+  "State": "running",
+  "Status": "Up 2 minutes",
+  "HostConfig": { "NetworkMode": "default" },
+  "NetworkSettings": {
+    "Networks": {
+      "bridge": {
+        "IPAMConfig": null,
+        "Links": null,
+        "Aliases": null,
+        "NetworkID": "",
+        "EndpointID": "d6d0484ee9ff3b39dee1f8bd08040317c72e12163da778734f5be18e9c8b3845",
+        "Gateway": "172.17.0.1",
+        "IPAddress": "172.17.0.2",
+        "IPPrefixLen": 16,
+        "IPv6Gateway": "",
+        "GlobalIPv6Address": "",
+        "GlobalIPv6PrefixLen": 0,
+        "MacAddress": "02:42:ac:11:00:02"
+      }
+    }
+  },
+  "Mounts": [
+    {
+      "Name": "a65233b90ac3384081abd4faf6e456342b63fde3569f7106fd9c4f0c280e0e56",
+      "Source": "/var/lib/docker/volumes/a65233b90ac3384081abd4faf6e456342b63fde3569f7106fd9c4f0c280e0e56/_data",
+      "Destination": "/srv",
+      "Driver": "local",
+      "Mode": "",
+      "RW": true,
+      "Propagation": ""
+    }
+  ]
 }]
