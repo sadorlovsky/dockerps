@@ -9,14 +9,13 @@
   "preferGlobal": true,
   "scripts": {
     "build": "babel src -d lib",
-    "build:watch": "watch 'npm run build' src",
     "lint": "eslint src test",
     "test": "NODE_ENV=test nyc ava",
     "clean": "rimraf lib",
+    "prebuild": "npm run clean",
     "check": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run clean && npm run check && npm run build",
-    "precommit": "npm run check",
+    "prepublish": "npm run check && npm run build",
     "prepush": "npm run check"
   },
   "ava": {
