@@ -4,14 +4,13 @@ import Mitm from 'mitm'
 import fs from 'mz/fs'
 import dockerps from '../src/dockerps'
 
-const mitm = Mitm()
-
 test('get running containers', async t => {
   const fixturePath = path.resolve('fixtures', 'containers.json')
   const containers = JSON.parse(await fs.readFile(fixturePath, { encoding: 'utf8' }))
     .filter(c => c['State'] === 'running')
   const expected = JSON.stringify(containers)
 
+  const mitm = Mitm()
   mitm.on('request', (req, res) => {
     res.statusCode = 200
     res.end(expected)
@@ -25,6 +24,7 @@ test('get all containers', async t => {
   const fixturePath = path.resolve('fixtures', 'containers.json')
   const expected = await fs.readFile(fixturePath, { encoding: 'utf8' })
 
+  const mitm = Mitm()
   mitm.on('request', (req, res) => {
     res.statusCode = 200
     res.end(expected)
