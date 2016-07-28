@@ -10,7 +10,6 @@ function dockerps (options) {
 
   return got(`${sock}/containers/json?${querystring.stringify(_options)}`)
     .then(res => res.body)
-    .catch(err => console.log(err))
 }
 
 export default dockerps
