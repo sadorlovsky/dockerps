@@ -8,21 +8,13 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "build": "babel src -d lib",
-    "lint": "eslint src test",
+    "lint": "eslint lib test",
     "test": "NODE_ENV=test nyc ava",
-    "prebuild": "rimraf lib",
     "pretest": "rimraf coverage",
     "check": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run check && npm run build",
+    "prepublish": "npm run check",
     "prepush": "npm run check"
-  },
-  "ava": {
-    "require": [
-      "babel-register",
-      "babel-polyfill"
-    ]
   },
   "files": [
     "bin",
