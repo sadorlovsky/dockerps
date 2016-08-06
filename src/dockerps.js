@@ -10,17 +10,11 @@ const image = _image => {
   return _image
 }
 
-/* eslint-disable fp/no-mutation, no-param-reassign, operator-assignment */
 const ports = _ports => {
-  if (_ports.length > 0) {
-    return _ports.reduce((res, port) => {
-      res += `${port.PrivatePort}/${port.Type}, `
-      return res
-    }, '')
-  }
-  return ''
+  return _ports.reduce((res, port) => {
+    return res.concat(`${port.PrivatePort}/${port.Type}`)
+  }, [])
 }
-/* eslint-enable fp/no-mutation, no-param-reassign, operator-assignment */
 
 function dockerps (options) {
   const defaultOptions = {

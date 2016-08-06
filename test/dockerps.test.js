@@ -34,7 +34,7 @@ test('running containers', async t => {
     created: 1000000,
     state: 'running',
     status: 'Up 5 minutes',
-    ports: ''
+    ports: []
   }, {
     id: 'abc456def789',
     image: 'foo-bar',
@@ -43,7 +43,7 @@ test('running containers', async t => {
     created: 2000000,
     state: 'running',
     status: 'Up 25 minutes',
-    ports: '2015/tcp, ' // TODO: '2015/tcp'
+    ports: ['2015/tcp']
   }]
 
   const mock = mitm()
