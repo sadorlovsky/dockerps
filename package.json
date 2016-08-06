@@ -49,7 +49,8 @@
     "got": "^6.3.0",
     "meow": "^3.7.0",
     "ora": "^0.3.0",
-    "query-string": "^4.2.2"
+    "query-string": "^4.2.2",
+    "timeago.js": "^1.0.5"
   },
   "devDependencies": {
     "@sadorlovsky/eslint-config": "^0.12.0",
