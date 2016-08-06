@@ -1,31 +1,29 @@
-import path from 'path'
 import test from 'ava'
-import Mitm from 'mitm'
-import fs from 'mz/fs'
+import mitm from 'mitm'
 import dockerps from '../lib/dockerps'
 
 test('running containers', async t => {
   const fixtures = JSON.stringify([{
-    "Id": "123abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef",
-    "Names": ["/hello-world"],
-    "Image": "hello-world",
-    "Command": "/hello",
-    "Created": 1000000,
-    "Ports": [],
-    "State": "running",
-    "Status": "Up 5 minutes"
+    'Id': '123abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef',
+    'Names': ['/hello-world'],
+    'Image': 'hello-world',
+    'Command': '/hello',
+    'Created': 1000000,
+    'Ports': [],
+    'State': 'running',
+    'Status': 'Up 5 minutes'
   }, {
-    "Id": "abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123",
-    "Names": ["/foobar"],
-    "Image": "foo-bar",
-    "Command": "ls -l",
-    "Created": 2000000,
-    "Ports": [{
-      "PrivatePort": 2015,
-      "Type": "tcp"
+    'Id': 'abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123',
+    'Names': ['/foobar'],
+    'Image': 'foo-bar',
+    'Command': 'ls -l',
+    'Created': 2000000,
+    'Ports': [{
+      'PrivatePort': 2015,
+      'Type': 'tcp'
     }],
-    "State": "running",
-    "Status": "Up 25 minutes"
+    'State': 'running',
+    'Status': 'Up 25 minutes'
   }])
 
   const expected = [{
@@ -48,8 +46,8 @@ test('running containers', async t => {
     ports: '2015/tcp, ' // TODO: '2015/tcp'
   }]
 
-  const mitm = Mitm()
-  mitm.on('request', (req, res) => {
+  const mock = mitm()
+  mock.on('request', (_, res) => {
     res.statusCode = 200
     res.end(fixtures)
   })
