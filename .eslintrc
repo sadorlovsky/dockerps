@@ -10,6 +10,9 @@
     "babel/generator-star-spacing": ["error", {
       "before": false,
       "after": true
+    }],
+    "no-param-reassign": ["error", {
+      "props": false
     }]
   }
 }

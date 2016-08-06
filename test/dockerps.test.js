@@ -1,6 +1,6 @@
 import test from 'ava'
 import mitm from 'mitm'
-import dockerps from '../lib/dockerps'
+import dockerps from '../src/dockerps'
 
 test('running containers', async t => {
   const fixtures = JSON.stringify([{
@@ -47,10 +47,12 @@ test('running containers', async t => {
   }]
 
   const mock = mitm()
+  /* eslint-disable fp/no-mutation */
   mock.on('request', (_, res) => {
     res.statusCode = 200
     res.end(fixtures)
   })
+  /* eslint-enable fp/no-mutation */
 
   const result = await dockerps()
   t.deepEqual(result, expected)

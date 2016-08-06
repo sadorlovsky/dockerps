@@ -8,13 +8,18 @@
   },
   "preferGlobal": true,
   "scripts": {
-    "lint": "eslint lib test",
+    "lint": "eslint src test",
     "test": "NODE_ENV=test nyc ava",
     "pretest": "rimraf coverage",
     "check": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "prepublish": "npm run check",
     "prepush": "npm run check"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
   },
   "files": [
     "bin",

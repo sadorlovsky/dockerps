@@ -1,5 +1,5 @@
-const got = require('got')
-const querystring = require('query-string')
+import got from 'got'
+import querystring from 'query-string'
 
 const sock = 'http://unix:/var/run/docker.sock:'
 
@@ -10,14 +10,17 @@ const image = _image => {
   return _image
 }
 
+/* eslint-disable fp/no-mutation, no-param-reassign, operator-assignment */
 const ports = _ports => {
   if (_ports.length > 0) {
     return _ports.reduce((res, port) => {
-      return res += `${port.PrivatePort}/${port.Type}, `
+      res += `${port.PrivatePort}/${port.Type}, `
+      return res
     }, '')
   }
   return ''
 }
+/* eslint-enable fp/no-mutation, no-param-reassign, operator-assignment */
 
 function dockerps (options) {
   const defaultOptions = {
@@ -41,4 +44,4 @@ function dockerps (options) {
     })))
 }
 
-module.exports = dockerps
+export default dockerps

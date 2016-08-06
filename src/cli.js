@@ -1,9 +1,9 @@
-const meow = require('meow')
-const dockerps = require('./dockerps')
-const Table = require('cli-table2')
-const strip = require('common-tags').stripIndent
-const chalk = require('chalk')
-const timeago = require('timeago.js')
+import meow from 'meow'
+import Table from 'cli-table2'
+import { stripIndent as strip } from 'common-tags'
+import chalk from 'chalk'
+import timeago from 'timeago.js'
+import dockerps from './dockerps'
 
 const cli = meow(`
   Usage
@@ -34,6 +34,7 @@ const table = new Table({
   }
 })
 
+/* eslint-disable fp/no-mutation, no-param-reassign, complexity */
 const flagsToDockerOptions = flags => {
   return Object.keys(flags).reduce((res, key) => {
     if (key === 'all') {
@@ -51,6 +52,7 @@ const flagsToDockerOptions = flags => {
     return res
   }, {})
 }
+/* eslint-enable fp/no-mutation, no-param-reassign, complexity */
 
 dockerps(flagsToDockerOptions(cli.flags)).then(containers => {
   if (containers.length === 0) {
