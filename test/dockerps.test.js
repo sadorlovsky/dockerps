@@ -24,6 +24,15 @@ test('running containers', async t => {
     }],
     'State': 'running',
     'Status': 'Up 25 minutes'
+  }, {
+    'Id': '456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc',
+    'Names': ['/without-image-name'],
+    'Image': 'sha256:def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc456',
+    'Command': 'bash',
+    'Created': 40000000,
+    'Ports': [],
+    'State': 'running',
+    'Status': 'Up 55 minutes'
   }])
 
   const expected = [{
@@ -44,6 +53,15 @@ test('running containers', async t => {
     state: 'running',
     status: 'Up 25 minutes',
     ports: ['2015/tcp']
+  }, {
+    id: '456def789ghi',
+    image: 'def789ghi123',
+    name: 'without-image-name',
+    command: 'bash',
+    created: 40000000,
+    state: 'running',
+    status: 'Up 55 minutes',
+    ports: []
   }]
 
   const mock = mitm()
