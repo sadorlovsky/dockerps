@@ -2,6 +2,20 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [Unreleased]
+### Added
+- @sadorlovsky codestyle
+
+### Changed
+- Use docker remote api instead of parsing `docker ps` stdout
+- Update dependencies
+- Update test
+- Use coveralls
+- Refactor pretty much the whole code
+
+### Removed
+- Remove filter option (because i hope i will replace it by better filter feature)
+
 ## [0.4.1] - 2016-03-21
 ### Changed
 - Small refactoring
@@ -38,6 +52,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.0 - 2016-02-13
 
+[Unreleased]: https://github.com/sadorlovsky/dockerps/compare/v0.4.1...HEAD
 [0.4.1]: https://github.com/sadorlovsky/dockerps/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/sadorlovsky/dockerps/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/sadorlovsky/dockerps/compare/v0.2.3...v0.3.0
