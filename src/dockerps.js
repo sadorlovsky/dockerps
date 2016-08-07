@@ -12,6 +12,9 @@ const image = _image => {
 
 const ports = _ports => {
   return _ports.reduce((res, port) => {
+    if (port.IP && port.PublicPort) {
+      return res.concat(`${port.IP}:${port.PublicPort} -> ${port.PrivatePort}/${port.Type}`)
+    }
     return res.concat(`${port.PrivatePort}/${port.Type}`)
   }, [])
 }
