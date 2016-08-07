@@ -66,7 +66,7 @@ dockerps(flagsToDockerOptions(cli.flags)).then(containers => {
 
   containers.forEach(container => {
     table.push([
-      container.ports ? { rowSpan: 2, content: chalk.bold(container.id) } : chalk.bold(container.id),
+      container.ports.length > 0 ? { rowSpan: 2, content: chalk.bold(container.id) } : chalk.bold(container.id),
       strip`
         ${chalk.magenta('Name')}
         ${container.name}
@@ -82,9 +82,9 @@ dockerps(flagsToDockerOptions(cli.flags)).then(containers => {
         ${chalk.magenta('Status')}
         ${container.status}`
     ])
-    if (container.ports) {
+    if (container.ports.length > 0) {
       table.push([{
-        content: `ports: ${container.ports}`,
+        content: container.ports.join(', '),
         colSpan: 2,
         hAlign: 'center'
       }])
