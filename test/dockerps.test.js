@@ -30,7 +30,12 @@ test('running containers', async t => {
     'Image': 'sha256:def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc456',
     'Command': 'bash',
     'Created': 40000000,
-    'Ports': [],
+    'Ports': [{
+      'IP': '0.0.0.0',
+      'PrivatePort': 2015,
+      'PublicPort': 2014,
+      'Type': 'tcp'
+    }],
     'State': 'running',
     'Status': 'Up 55 minutes'
   }])
@@ -61,7 +66,7 @@ test('running containers', async t => {
     created: 40000000,
     state: 'running',
     status: 'Up 55 minutes',
-    ports: []
+    ports: ['0.0.0.0:2014 -> 2015/tcp']
   }]
 
   const mock = mitm()
