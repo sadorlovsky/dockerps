@@ -15,7 +15,7 @@
     "pretest": "rimraf coverage",
     "check": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run check",
+    "prepublish": "npm run check && npm run build",
     "prepush": "npm run check"
   },
   "ava": {
