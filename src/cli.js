@@ -1,4 +1,5 @@
 import meow from 'meow'
+import ora from 'ora'
 import output from './output'
 import dockerps from './dockerps'
 
@@ -44,7 +45,14 @@ const flagsToDockerOptions = flags => {
 }
 /* eslint-enable fp/no-mutation, no-param-reassign, complexity */
 
+const spinner = ora('check containers')
+
+setTimeout(() => {
+  spinner.start()
+}, 500)
+
 dockerps(flagsToDockerOptions(cli.flags)).then(containers => {
+  spinner.stop()
   const { result, status } = output(containers, cli.flags)
   console.log(result)
   process.exit(status)
