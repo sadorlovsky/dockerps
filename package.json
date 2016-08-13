@@ -1,7 +1,7 @@
 {
   "name": "dockerps",
   "version": "0.5.0-beta",
-  "description": "Pretty-print docker ps utility",
+  "description": "A better `docker ps`",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -14,7 +14,6 @@
   },
   "author": "Zach Orlovsky <sadorlovsky@gmail.com>",
   "preferGlobal": true,
-  "main": "./lib/dockerps.js",
   "bin": {
     "dockerps": "bin/dockerps.js"
   },
@@ -26,6 +25,7 @@
     "prebuild": "rimraf lib",
     "lint": "eslint src test",
     "lint-staged": "lint-staged",
+    "clinton": "clinton",
     "test": "NODE_ENV=test nyc --check-coverage --lines 100 ava",
     "pretest": "rimraf coverage",
     "check": "npm run lint && npm run test",
