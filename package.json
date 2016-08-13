@@ -1,6 +1,6 @@
 {
   "name": "dockerps",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "A better `docker ps`",
   "license": "MIT",
   "repository": {

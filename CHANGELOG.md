@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.1] - 2016-08-13
+### Fixed
+- Fix issue with eslint-plugin-ava
+
 ## [0.5.0] - 2016-08-13
 ### Added
 - @sadorlovsky codestyle
@@ -52,6 +56,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.0 - 2016-02-13
 
+[0.5.1]: https://github.com/sadorlovsky/dockerps/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/sadorlovsky/dockerps/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/sadorlovsky/dockerps/compare/v0.4.0...v0.4.1
 [0.4.0]: https://github.com/sadorlovsky/dockerps/compare/v0.3.0...v0.4.0
