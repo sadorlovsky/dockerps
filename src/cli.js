@@ -1,5 +1,6 @@
 import meow from 'meow'
 import ora from 'ora'
+import { simpleDotsScrolling } from 'cli-spinners'
 import output from './output'
 import dockerps from './dockerps'
 
@@ -45,11 +46,14 @@ const flagsToDockerOptions = flags => {
 }
 /* eslint-enable fp/no-mutation, no-param-reassign, complexity */
 
-const spinner = ora('check containers')
+const spinner = ora({
+  text: 'check containers',
+  spinner: simpleDotsScrolling
+})
 
 setTimeout(() => {
   spinner.start()
-}, 500)
+}, 300)
 
 dockerps(flagsToDockerOptions(cli.flags)).then(containers => {
   spinner.stop()
