@@ -5,7 +5,7 @@
 
 > A better `docker ps`
 
-[![asciicast](https://asciinema.org/a/e5hdjs2nc3o1qs01nu24u577x.png)](https://asciinema.org/a/e5hdjs2nc3o1qs01nu24u577x)
+![screenshot](screenshot.png)
 
 ## Install
 ```
