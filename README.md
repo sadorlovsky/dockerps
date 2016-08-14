@@ -13,8 +13,6 @@ $ npm install -g dockerps
 ```
 
 ## Usage
-`dockerps` is like a normal `docker ps` but has nice readable output.
-
 ```bash
 # show running containers
 $ dockerps
