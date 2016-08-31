@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
+## [0.5.2] - 2016-08-31
+### Fixed
+- Fix `handle.writeLatin1String is not a function` issue by updating `node-mitm`
+
 ## [0.5.1] - 2016-08-13
 ### Fixed
 - Fix issue with eslint-plugin-ava
@@ -56,6 +60,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## 0.1.0 - 2016-02-13
 
+[0.5.2]: https://github.com/sadorlovsky/dockerps/compare/v0.5.1...v0.5.2
 [0.5.1]: https://github.com/sadorlovsky/dockerps/compare/v0.5.0...v0.5.1
 [0.5.0]: https://github.com/sadorlovsky/dockerps/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/sadorlovsky/dockerps/compare/v0.4.0...v0.4.1
