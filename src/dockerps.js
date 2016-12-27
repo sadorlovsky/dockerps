@@ -1,5 +1,6 @@
 import got from 'got'
 import querystring from 'query-string'
+import last from 'array-last'
 
 const sock = 'http://unix:/var/run/docker.sock:'
 
@@ -32,7 +33,7 @@ function dockerps (options) {
     .then(containers => containers.map(container => ({
       id: container.Id.substring(0, 12),
       image: image(container.Image),
-      name: container.Names.slice().pop().substring(1),
+      name: last(container.Names).substring(1),
       command: container.Command,
       created: container.Created,
       state: container.State,

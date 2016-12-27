@@ -25,6 +25,7 @@ const output = (containers, flags) => {
   }
 
   containers.forEach(container => {
+    // eslint-disable-next-line fp/no-mutating-methods
     table.push([
       container.ports.length > 0 ? { rowSpan: 2, content: chalk.bold(container.id) } : chalk.bold(container.id),
       strip`
@@ -43,6 +44,7 @@ const output = (containers, flags) => {
         ${container.status}`
     ])
     if (container.ports.length > 0) {
+      // eslint-disable-next-line fp/no-mutating-methods
       table.push([{
         content: container.ports.join(', '),
         colSpan: 2,
