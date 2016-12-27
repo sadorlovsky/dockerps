@@ -3,10 +3,7 @@
   "version": "0.5.2",
   "description": "A better `docker ps`",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sadorlovsky/dockerps.git"
-  },
+  "repository": "sadorlovsky/dockerps",
   "homepage": "https://github.com/sadorlovsky/dockerps",
   "bugs": {
     "url": "https://github.com/sadorlovsky/dockerps/issues",
@@ -25,12 +22,11 @@
     "prebuild": "rimraf lib",
     "lint": "eslint src test",
     "lint-staged": "lint-staged",
-    "clinton": "clinton",
     "test": "NODE_ENV=test nyc --check-coverage --lines 100 ava",
     "pretest": "rimraf coverage",
     "check": "npm run lint && npm run test",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
-    "prepublish": "npm run check && npm run build && clinton",
+    "prepublishOnly": "npm run check && npm run build",
     "precommit": "npm run lint-staged",
     "prepush": "npm run check"
   },
@@ -97,12 +93,5 @@
   },
   "lint-staged": {
     "*.js": "eslint"
-  },
-  "clinton": {
-    "rules": {
-      "ava": "error",
-      "xo": "off",
-      "filename-case": "off"
-    }
   }
 }
