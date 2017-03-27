@@ -1,43 +1,43 @@
 import test from 'ava'
 import mitm from 'mitm'
-import dockerps from '../src/dockerps'
+import dockerps from './dockerps'
 
 test('running containers', async t => {
   const fixtures = JSON.stringify([{
-    'Id': '123abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef',
-    'Names': ['/hello-world'],
-    'Image': 'hello-world',
-    'Command': '/hello',
-    'Created': 1000000,
-    'Ports': [],
-    'State': 'running',
-    'Status': 'Up 5 minutes'
+    Id: '123abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef',
+    Names: ['/hello-world'],
+    Image: 'hello-world',
+    Command: '/hello',
+    Created: 1000000,
+    Ports: [],
+    State: 'running',
+    Status: 'Up 5 minutes'
   }, {
-    'Id': 'abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123',
-    'Names': ['/foobar'],
-    'Image': 'foo-bar',
-    'Command': 'ls -l',
-    'Created': 2000000,
-    'Ports': [{
-      'PrivatePort': 2015,
-      'Type': 'tcp'
+    Id: 'abc456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123',
+    Names: ['/foobar'],
+    Image: 'foo-bar',
+    Command: 'ls -l',
+    Created: 2000000,
+    Ports: [{
+      PrivatePort: 2015,
+      Type: 'tcp'
     }],
-    'State': 'running',
-    'Status': 'Up 25 minutes'
+    State: 'running',
+    Status: 'Up 25 minutes'
   }, {
-    'Id': '456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc',
-    'Names': ['/without-image-name'],
-    'Image': 'sha256:def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc456',
-    'Command': 'bash',
-    'Created': 40000000,
-    'Ports': [{
-      'IP': '0.0.0.0',
-      'PrivatePort': 2015,
-      'PublicPort': 2014,
-      'Type': 'tcp'
+    Id: '456def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc',
+    Names: ['/without-image-name'],
+    Image: 'sha256:def789ghi123jkl456mno789pqr123stu456vwx789yza123bcd456ef123abc456',
+    Command: 'bash',
+    Created: 40000000,
+    Ports: [{
+      IP: '0.0.0.0',
+      PrivatePort: 2015,
+      PublicPort: 2014,
+      Type: 'tcp'
     }],
-    'State': 'running',
-    'Status': 'Up 55 minutes'
+    State: 'running',
+    Status: 'Up 55 minutes'
   }])
 
   const expected = [{

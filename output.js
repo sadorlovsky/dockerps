@@ -1,7 +1,7 @@
-import Table from 'cli-table2'
-import { stripIndent as strip } from 'common-tags'
-import chalk from 'chalk'
-import timeago from 'timeago.js'
+const Table = require('cli-table2')
+const {stripIndent} = require('common-tags')
+const chalk = require('chalk')
+const timeago = require('timeago.js')
 
 const table = new Table({
   head: [chalk.blue('ID'), chalk.blue('Container'), chalk.blue('Status')],
@@ -25,17 +25,16 @@ const output = (containers, flags) => {
   }
 
   containers.forEach(container => {
-    // eslint-disable-next-line fp/no-mutating-methods
     table.push([
-      container.ports.length > 0 ? { rowSpan: 2, content: chalk.bold(container.id) } : chalk.bold(container.id),
-      strip`
+      container.ports.length > 0 ? {rowSpan: 2, content: chalk.bold(container.id)} : chalk.bold(container.id),
+      stripIndent`
         ${chalk.magenta('Name')}
         ${container.name}
         ${chalk.magenta('Image')}
         ${container.image}
         ${chalk.magenta('Command')}
         ${container.command}`,
-      strip`
+      stripIndent`
         ${chalk.magenta('Created')}
         ${timeago().format(container.created * 1000)}
         ${chalk.magenta('State')}
@@ -44,7 +43,6 @@ const output = (containers, flags) => {
         ${container.status}`
     ])
     if (container.ports.length > 0) {
-      // eslint-disable-next-line fp/no-mutating-methods
       table.push([{
         content: container.ports.join(', '),
         colSpan: 2,
@@ -59,4 +57,4 @@ const output = (containers, flags) => {
   }
 }
 
-export default output
+module.exports = output

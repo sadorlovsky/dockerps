@@ -1,20 +1,20 @@
 import test from 'ava'
-import { stripIndent as strip } from 'common-tags'
+import {stripIndent as strip} from 'common-tags'
 import stripAnsi from 'strip-ansi'
-import output from '../src/output'
+import output from './output'
 
 test('no running containers', t => {
-  const { result } = output([], { all: false })
+  const {result} = output([], {all: false})
   t.is(result, 'no running containers')
 })
 
 test('no containers', t => {
-  const { result } = output([], { all: true })
+  const {result} = output([], {all: true})
   t.is(result, 'no containers')
 })
 
-test(t => {
-  const { result } = output(
+test('works', t => {
+  const {result} = output(
     [{
       id: '123abc456def',
       image: 'hello-world',
@@ -49,14 +49,14 @@ test(t => {
   │ ID           │ Container          │ Status        │
   ├──────────────┼────────────────────┼───────────────┤
   │ 123abc456def │ Name               │ Created       │
-  │              │ hello-world        │ 46 years ago  │
+  │              │ hello-world        │ 47 years ago  │
   │              │ Image              │ State         │
   │              │ hello-world        │ running       │
   │              │ Command            │ Status        │
   │              │ /hello             │ Up 5 minutes  │
   ├──────────────┼────────────────────┼───────────────┤
   │ abc456def789 │ Name               │ Created       │
-  │              │ foobar             │ 46 years ago  │
+  │              │ foobar             │ 47 years ago  │
   │              │ Image              │ State         │
   │              │ foo-bar            │ running       │
   │              │ Command            │ Status        │

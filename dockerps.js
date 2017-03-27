@@ -1,6 +1,6 @@
-import got from 'got'
-import querystring from 'query-string'
-import last from 'array-last'
+const got = require('got')
+const qs = require('query-string')
+const last = require('array-last')
 
 const sock = 'http://unix:/var/run/docker.sock:'
 
@@ -20,7 +20,7 @@ const ports = _ports => {
   }, [])
 }
 
-function dockerps (options) {
+function dockerps(options) {
   const defaultOptions = {
     all: false,
     size: true
@@ -28,7 +28,7 @@ function dockerps (options) {
 
   const _options = Object.assign({}, defaultOptions, options)
 
-  return got(`${sock}/containers/json?${querystring.stringify(_options)}`)
+  return got(`${sock}/containers/json?${qs.stringify(_options)}`)
     .then(res => JSON.parse(res.body))
     .then(containers => containers.map(container => ({
       id: container.Id.substring(0, 12),
@@ -42,4 +42,4 @@ function dockerps (options) {
     })))
 }
 
-export default dockerps
+module.exports = dockerps

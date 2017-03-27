@@ -1,8 +1,9 @@
-import meow from 'meow'
-import ora from 'ora'
-import { simpleDotsScrolling } from 'cli-spinners'
-import output from './output'
-import dockerps from './dockerps'
+#!/usr/bin/env node
+const meow = require('meow')
+const ora = require('ora')
+const {simpleDotsScrolling} = require('cli-spinners')
+const output = require('./output')
+const dockerps = require('./dockerps')
 
 const cli = meow(`
   Usage
@@ -26,7 +27,6 @@ const cli = meow(`
   }
 )
 
-/* eslint-disable fp/no-mutation, no-param-reassign, complexity */
 const flagsToDockerOptions = flags => {
   return Object.keys(flags).reduce((res, key) => {
     if (key === 'all') {
@@ -44,7 +44,6 @@ const flagsToDockerOptions = flags => {
     return res
   }, {})
 }
-/* eslint-enable fp/no-mutation, no-param-reassign, complexity */
 
 const spinner = ora({
   text: 'check containers',
@@ -57,10 +56,10 @@ setTimeout(() => {
 
 dockerps(flagsToDockerOptions(cli.flags)).then(containers => {
   spinner.stop()
-  const { result, status } = output(containers, cli.flags)
+  const {result, status} = output(containers, cli.flags)
   console.log(result)
   process.exit(status)
-}).catch(e => {
-  console.log(e)
+}).catch(err => {
+  console.log(err)
   process.exit(1)
 })
