@@ -26,7 +26,3 @@ $ dockerps --latest
 # show 2 last created containers
 $ dockerps --last 2
 ```
-
-## License
-
-MIT © [Zach Orlovsky](https://orlovsky.rocks)
